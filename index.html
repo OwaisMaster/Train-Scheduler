@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Scheduler</title>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-database.js"></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- Moment -->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- JS -->
+    <script src="javascript/app.js"></script>
+
+</head>
+
+<body>
+    <header class="jumbotron">
+        <h1 class="display-4"><b>Stamford Train Times</b></h1>
+        <p class="lead">
+            <h2 class="under">Always be on time!</h2>
+            <h3 id="time"> </h3>
+        </p>
+    </header>
+
+    <div class="container">
+        <table class="table">
+            <!--Table Head -->
+            <thead class="thead-dark">
+                <th scope="col">Current Train Schedule</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+
+            </thead>
+            <!-- Train Information -->
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Departure</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                </tr>
+            </thead>
+            <!-- Train Data -->
+            <tbody id="train-table">
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+    <hr>
+    <!-- Add a Train -->
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col-12">Add A Train</th>
+                </tr>
+            </thead>
+        </table>
+        <form>
+            <div class="form-group">
+                <label for="train-name"><b>Train</b></label>
+                <input type="text" class="form-control" id="train-name" placeholder="Enter train name">
+            </div>
+            <div class="form-group">
+                <label for="departure-name"><b>Departure</b></label>
+                <input type="text" class="form-control" id="departure-name" placeholder="Enter departure location">
+            </div>
+            <div class="form-group">
+                <label for="destination-name"><b>Destination</b></label>
+                <input type="text" class="form-control" id="destination-name" aria-describedby="destHelp"
+                    placeholder="Enter destination">
+                <small id="destHelp" class="form-text text-muted"><b>Ex. Washington, DC</b></small>
+            </div>
+
+            <div class="from-group">
+                <label for="arrival-time"><b>Arrival Time</b></label>
+                <input type="text" class="form-control" id="arrival-time" aria-describedby="timeHelp"
+                    placeholder="Enter arrival time in military hours">
+                <small id="timeHelp" class="form-text text-muted"><b>Ex. HH:mm</b></small>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="freq-input"><b>Frequency</b></label>
+                <input type="text" class="form-control" id="freq-input"
+                    placeholder="Enter frequency of train arrival in minutes">
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
